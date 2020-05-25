@@ -1,0 +1,63 @@
+<div class="container ">
+  <div class="row justify-content-center middle">
+    <input  type="text"
+            class="form-control header"
+            placeholder= "What needs to be Done... ?"
+            style="font-style:italic"
+            (keypress)="enterEvent($event)"
+    >
+  </div>
+  <br>
+    <div class="row justify-content-center middle" *ngFor="let list of todoListFilterArray">
+    <ul class="list-group col-md-12 listFormat">
+      <li class="list-group-item dl" (dblclick)="onDoubleClickEditable(list)" >
+        <!-- New records insert  -->
+        <div *ngIf="!selectTodo">
+          <span class="checked" *ngIf="list.done" (click)="toggleTodoStatus(list.id,list.done,list.name)"><i class="fa fa-lg fa-check-circle-o"></i></span>
+          <span class="not-checked" *ngIf="!list.done" (click)="toggleTodoStatus(list.id,list.done,list.name)"><i class="fa fa-lg fa-circle-thin"></i></span>
+          <span  [ngClass]="list.done?'text-decoration':'no-text-decoration'">{{list.name}}</span>
+          <span class="float-right delete" (click)="onDelete(list.id)"><fa-icon [icon]="faTrash"></fa-icon></span>
+        </div>
+        <!-- Update the Task -->
+        <div *ngIf="selectTodo">
+            <div *ngIf="selectTodo.id===list.id">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" [(ngModel)]="updateExistingTask" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" style="font-style:italic" autofocus>
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="updateTask(list.id,updateExistingTask,list.done)"><fa-icon [icon]="faEdit"></fa-icon></button>
+                    </div>
+                  </div>
+            </div>
+
+            <div *ngIf="selectTodo.id!==list.id">
+              <span class="checked" *ngIf="list.done" (click)="toggleTodoStatus(list.id,list.done,list.name)"><i class="fa fa-lg fa-check-circle-o"></i></span>
+              <span class="not-checked" *ngIf="!list.done" (click)="toggleTodoStatus(list.id,list.done,list.name)"><i class="fa fa-lg fa-circle-thin"></i></span>
+              <span  [ngClass]="list.done?'text-decoration':'no-text-decoration'">{{list.name}}</span>
+              <span class="float-right delete" (click)="onDelete(list.id)"><fa-icon [icon]="faTrash"></fa-icon></span>
+            </div>
+        </div>
+
+      </li>
+    </ul>
+  </div>
+<!-- this is for the footer -->
+  <div class="row justify-content-center middle" >
+    <ul class="list-group  col-md-12 listFormat">
+     <li class="list-group-item formatFooter ">
+      <span *ngIf="stillActive!==1"> {{stillActive}} items left </span>
+      <span *ngIf="stillActive==1"> {{stillActive}} item left </span>
+
+      <span class="btn-group float-right" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-light" (click)="All()">All</button>
+        <button type="button" class="btn btn-light" (click)="activeTodo()">Active</button>
+        <button type="button" class="btn btn-light" (click)="completedTodo()">completed</button>
+      </span>
+
+      </li>
+    </ul>
+</div>
+
+<br>
+</div>
+
+

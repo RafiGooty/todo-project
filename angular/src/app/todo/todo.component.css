@@ -1,0 +1,134 @@
+ul {
+  list-style-type: none;
+}
+
+
+.middle{
+  margin-left: 25%;
+  margin-right: 25%;
+
+}
+
+.header {
+  border-radius: 15px;
+  line-height: 1;
+}
+
+.listFormat{
+  border-radius: 15px;
+  line-height: 1;
+}
+/*
+.space-delete{
+  padding: 1%;
+  color: rgb(207, 92, 92);
+}
+
+.space-edit{
+  padding: 1%;
+  color: rgb(90, 90, 233);
+} */
+
+
+.dl{
+  display: inline;
+}
+
+.checked, .not-checked{
+font-size:x-large;
+font-weight: 1;
+cursor: pointer;
+}
+
+.checked{
+  color: rgb(106, 233, 106);
+}
+
+.delete{
+  color: rgb(216, 87, 87);
+  padding-left: 5px;
+  font-size:large;
+  cursor: pointer;
+  visibility: hidden;
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+  opacity: 0;
+}
+
+/* .edit{
+  font-size:large;
+  cursor: pointer;
+  color: rgb(112, 112, 197);
+  visibility: hidden;
+  -webkit-transition: all 2s ease;
+  transition: all 3.5s ease;
+  opacity: 0;
+} */
+
+/* li.list-group-item:hover > .delete {
+  visibility: visible;
+  transition: all 3.5s ease;
+  opacity: 1;
+} */
+
+li.list-group-item > div:hover > .delete {
+  visibility: visible;
+  transition: all 2.5s ease;
+  opacity: 1;
+}
+
+li.list-group-item:hover > .edit {
+  visibility: visible;
+  transition: all 3.5s ease;
+  opacity: 1;
+  }
+
+  .delete:hover, .edit:hover{
+    -webkit-transition: all 2s ease;
+    transition: all 3.5s ease;
+  }
+  li,.float-right{
+    -webkit-transition: all 2s ease;
+    transition: all 3.5s ease;
+  }
+
+  .text-decoration{
+    color: rgb(132, 194, 159);
+    font-style: italic;
+    font-size: 20px;
+    text-decoration: line-through;
+    padding-left: 5px;
+    opacity: .8;
+    transition-duration: 2s;
+  }
+
+  .no-text-decoration{
+    padding-left: 5px;
+    font-size: 16px;
+    opacity: 1;
+    transition-duration: 2s;
+  }
+
+  ul li.dl {
+    display: inline-block;
+    opacity: .8;
+    font-size: 0px;
+    transition: all linear 0.5s;
+  }
+
+   .animate {
+    opacity: 1;
+    font-size: 16px;
+  }
+
+  .formatFooter{
+    opacity: 0.5;
+    text-decoration: silver;
+    text-shadow: skyblue;
+    font-style: italic;
+
+  }
+
+  .display-align{
+    display: inline-block;
+  }
